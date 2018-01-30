@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS OrdersTable (
+    id SERIAL PRIMARY KEY,
+    userId INTEGER,
+    open BOOLEAN DEFAULT TRUE;
+)

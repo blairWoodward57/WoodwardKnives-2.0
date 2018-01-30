@@ -1,0 +1,246 @@
+.cart_main_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart_knife_description_cart {
+    display: flex;
+    width: 75vw;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cart_header_main_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+}
+
+.cart_header {
+    display: flex;
+    height: 80px;
+    width: 75%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    font-size: 70px;
+    color: #2E2E30;
+    font-family: 'Lobster', cursive;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+hr {
+    width: 1000px;
+}
+
+.checkout_button_1 button{
+    width: 140px;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: white;
+    background: #48abe8;
+    border: solid 1px #2E2E30;
+    border-radius: 4px;
+    margin-right: -160px;
+    margin-left: 90px;
+    cursor: pointer;
+}
+
+.checkout_button_1 {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    align-items: center;
+    /* margin-top: 80px; */
+    /* margin-bottom: 220px; */
+}
+
+.checkout_button_2 {
+    display: none;
+}
+
+.cart_tile_container {
+    width: 1200px;
+    height: 500px;
+    margin-top: 30px;
+    overflow: scroll;
+}
+
+.cart_product_tile {
+    display: flex;
+    width: 1200px;
+    height: 200px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cart_product_tile button {
+    height: 40px;
+    width: 120px;
+    background: #F3D16D;
+    border: 1px solid #2E2E30;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+.knife_img {
+    height: 160px;
+    border: 1px solid #2E2E30;
+}
+
+.knife_title {
+    margin-top: 50px;
+}
+
+.checkout_total {
+    font-size: 28px !important;
+    font-family: 'Montserrat', sans-serif;
+    width: 300px;
+    /* margin-right: 50px; */
+    margin-top: 20px;
+    margin-right: -250px;
+}
+
+@media(max-width:320px) {
+   .cart_main_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart_knife_description_cart {
+    display: flex;
+    width: 75vw;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cart_header_main_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 260px;
+    margin-bottom: -30px;
+    margin-left: 40px;
+}
+
+.cart_header {
+    display: flex;
+    height: 80px;
+    width: 75%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    font-size: 45px;
+    color: #2E2E30;
+    font-family: 'Lobster', cursive;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: -10px;
+}
+
+hr {
+    display: none;
+}
+
+.checkout_button_2 button{
+    width: 70px;
+    height: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: white;
+    background: #48abe8;
+    border: solid 1px #2E2E30;
+    border-radius: 4px;
+    margin-right: 110px;
+    margin-left: 110px;
+    margin-top: -28px; 
+    margin-bottom: 20px;
+}
+
+.checkout_button_2 {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    align-items: center;
+    /* margin-top: 80px; */
+    /* margin-bottom: 220px; */
+}
+
+.checkout_button_2 button {
+    width: 200px;
+    height: 45px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.checkout_button_1 {
+    display: none;
+}
+
+.cart_tile_container {
+    width: 320px;
+    height: 500px;
+    margin-top: 30px;
+    overflow: scroll;
+}
+
+.cart_product_tile {
+    display: flex;
+    width: 320px;
+    height: 500px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.cart_product_tile button {
+    height: 40px;
+    width: 120px;
+    background: #F3D16D;
+    border: 1px solid #2E2E30;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.knife_img {
+    height: 160px;
+    border: 1px solid #2E2E30;
+}
+
+.knife_title {
+    margin-top: 50px;
+}
+
+.checkout_total {
+    width: 140px;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+
+.checkout_total p{
+    font-size: 18px !important;
+    font-family: 'Montserrat', sans-serif;
+    width: 140px;
+    /* margin-right: 50px; */
+    margin-top: 45px;
+    /* margin-right: -250px;  */
+    margin-left: -10px;
+} 
+
+.knife_description p {
+    margin: 0px;
+}
+}

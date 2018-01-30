@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+
+
+.main_landing_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1501157095236-a46e5f6274d7?dpr=1&auto=compress,format&fit=crop&w=1650&h=&q=80&cs=tinysrgb&crop=);  
+}
+
+.featured_knife_heading {
+    display: flex;
+    width: 900px;
+    justify-content: flex-start;
+    font-size: 50px;
+    color: white;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 27px;
+}
+
+.featured_knife_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 900px;
+    width: 800px;
+    background: #2E2E30;
+    margin-bottom: 150px;
+    padding: 20px;
+    
+}
+
+.featured_knife {
+    height: 420px;
+    width: 763px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.featured_knife_img_container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 420px;
+    width: 900px;
+}
+
+.featured_knife_desc_container {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    align-items: center; 
+    height: 150px;
+    width: 763px;
+    background: white;
+}
+
+.featured_knife_name {
+    display: flex;
+    height: 70px;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+.knifeName {
+    font-size: 28px;
+    font-weight: bold;
+    color: #F8D158;
+    margin-top: 15px;
+}
+
+.featured_knife_handle {
+    display: flex;
+    height: 70px;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+.handleMaterial {
+    font-size: 28px;
+    font-weight: bold;
+    color: #F8D158;
+    margin-top: 15px;
+}
+
+.featured_knife_steel {
+    display: flex;
+    height: 70px;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+.steelType {
+    font-size: 28px;
+    font-weight: bold;
+    color: #F8D158;
+    margin-top: 15px;
+}
+
+.featured_knife_price {
+    display: flex;
+    height: 70px;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+.knifePrice {
+    font-size: 28px;
+    font-weight: bold;
+    color: #F8D158;
+    margin-top: 15px;
+}
+
+.featured_knife_desc_container p { 
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    color: #2E2E30;
+    font-size: 18px;
+    flex-direction: column;
+    flex-wrap: wrap; 
+    width: 100px;
+    height: 150px;
+}
+
+.cart_bubble_container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+@media(max-width:1100px) {
+    .featured_knife_heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+@media(max-width:1100px) {
+    .featured_knife {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 350px;
+    }
+  }
+
+  @media(max-width:1100px) {
+    .featured_knife_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 650px;
+        height: 490px;
+    }
+  }
+ 
+  @media(max-width:1100px) {
+    .featured_knife_desc_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 637px;
+        height: 150px;
+        margin: 20px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+  }
+  
+  @media(max-width:1100px) {
+    .featured_knife_img_container img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 370px;
+        width: 637px;
+        margin: 20px;
+    }
+  }
+
+  @media(max-width:700px) {
+    .featured_knife_heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+@media(max-width:700px) {
+    .featured_knife {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 226px;
+    }
+  }
+
+  @media(max-width:700px) {
+    .featured_knife_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 420px;
+        height: 400px;
+    }
+  }
+ 
+  @media(max-width:700px) {
+    .featured_knife_desc_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 410px;
+        height: 300px;
+        /* margin-bottom: 20px; */
+    }
+    .featured_knife_name {
+        margin-left: 10px;
+    }
+    .featured_knife_steel {
+        margin-right: -17px;
+    }
+    .featured_knife_handle {
+        margin-left: 4px;
+    }
+    .featured_knife_price {
+        margin-right: -10px;
+    }
+  }
+
+  @media(max-width:700px) {
+    .featured_knife_img_container img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 240px;
+        width: 410px;
+        margin: 20px;
+    }
+  }
+
+  @media(max-width:320px){
+    .main_landing_container {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 508px; 
+        width: 320px;
+        background-image: url(https://images.unsplash.com/photo-1501157095236-a46e5f6274d7?dpr=1&auto=compress,format&fit=crop&w=1650&h=&q=80&cs=tinysrgb&crop=);  
+    }
+    .featured_knife_img_container img {
+        width: 320px;
+        height: 160px;
+        margin-top: 30px;
+    }
+    .featured_knife_container {
+        width: 270px;
+        height: 300px;
+        margin-bottom: 60px;
+        margin-top: -20px;
+    }
+    .featured_knife_img_container {
+        width: 320px;
+        height: 230px;
+    }
+    .featured_knife_heading {
+        width: 320px;
+        font-size: 35px;
+        margin-top: 70px;
+    }
+    .featured_knife_desc_container {
+        display: flex;
+        width: 280px;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        /* margin-bottom: 60px; */
+    }
+     .featured_knife_name p{
+        margin-top: 15px;  
+        margin-left: -120px;
+        font-size: 25px;
+    }
+    .featured_knife_steel {
+        display: none;
+    }
+    .featured_knife_handle {
+        display: none;
+    }
+    .featured_knife_price {
+        display: none;
+    }
+    .knifeName {
+        display: none;
+    }
+    Footer {
+        display: none;
+    }
+  }
+ 
+
+

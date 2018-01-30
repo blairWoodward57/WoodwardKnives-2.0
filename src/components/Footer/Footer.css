@@ -1,0 +1,29 @@
+.footer_main_wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    height: 60px;
+    width: 100%;
+    background: #2E2E30;
+    position: fixed;
+    bottom: 0;
+    
+}
+
+.facebook_logo {
+   height: 40px;
+   margin-right: 450px;
+   margin-top: 8px;
+}
+
+ @media(max-width:320px) {
+    .footer_main_wrapper {
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    
+    /* height: 60px; */
+    width: 368px;
+    position: fixed;
+}
+  }

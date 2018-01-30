@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS OrderItem (
+    id SERIAL PRIMARY KEY,
+    orderId INTEGER,
+    knifeId INTEGER,
+    quantity INTEGER DEFAULT 1
+)

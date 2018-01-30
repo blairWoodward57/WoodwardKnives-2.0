@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.dropdown_dropdown {
+  transition: 0.3s;
+}
+
+@media(max-width:320px){
+  .footer{
+    display: none;
+  }
+}

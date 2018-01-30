@@ -1,0 +1,137 @@
+.root_shop {
+    min-height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1494170959219-cc4354bcc818?dpr=1&auto=compress,format&fit=crop&w=1650&h=&q=80&cs=tinysrgb&crop=);
+    background-attachment: fixed;
+
+}
+
+.main_shop_container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.knife_tiles_container {
+    margin-top: -20px;
+    margin-bottom: 50px;
+}
+
+.shop_header {
+    font-size: 70px;
+    color: white;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 30px;
+}
+
+hr {
+    /* margin-bottom: -20px; */
+}
+
+.knife_tile {
+    display: flex;
+    height: 460px;
+    width: 1200px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 40px;
+    background: #2E2E30;;
+    border-radius: 10px;
+}
+
+.knife_tile img {
+    height: 360px;
+    margin: 0px;
+    border-radius: 5px;
+    
+}
+
+.knife_description {
+    width: 400px;
+    margin-top: -40px;
+}
+
+.knife_title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    margin-bottom: -5px;
+}
+
+.add_button {
+    height: 40px;
+    width: 130px;
+    background: #F8D158;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.add_button:hover {
+    background: #FEC503;
+}
+
+@media(max-width:320px) {
+    .main_shop_container{
+        display: flex;
+        width: 320px;
+        justify-content: center;
+        align-items: center;
+    }
+    .knife_tiles_container {
+        /* display: flex;   */
+        width: 320px;
+        /* height: 500px; */
+        flex-direction: column;
+        margin-right: 60px;
+    }
+    .shop_header {
+        display: flex;
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        margin-left: 60px;
+    }
+    hr {
+        display: none;
+    }
+    .knife_tile {
+        display: flex;
+        width: 300px;
+        height: 700px;
+        flex-direction: column;
+    }
+    .knife_tile img {
+        width: 250px;
+        height: 160px;
+         margin-bottom: -80px; 
+         margin-top: -50px;
+    }
+    .knife_description {
+        display: flex;
+        width: 220px;
+        height: 450px;
+        flex-direction: row;
+        flex-wrap: wrap; 
+        justify-content: center;
+        align-items: center;
+    }
+    .knife_description p {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .knife_title {
+        display: flex;
+        width: 200px;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+}
+
+
