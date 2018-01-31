@@ -14,6 +14,7 @@ const initialState = {
     lastName: '',
     email: '',
     price: 0,
+    itemsInCart: 0,
     productImage: '',
     userImage: '',
     cartTotal: 0.00,
@@ -34,7 +35,6 @@ const CALCULATE_CART_TOTAL = "CALCULATE_CART_TOTAL";
 const UPDATE_ADDRESS = "UPDATE_ADDRESS";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 
-
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER_INFO + '_FULFILLED':
@@ -45,7 +45,7 @@ export default function reducer(state = initialState, action) {
             console.log('reducer fired')
             state.cart.push(action.payload)
             console.log('state.cart', state.cart)
-            return Object.assign({}, state, { cart: state.cart })
+            return Object.assign({}, state, { cart: state.cart, itemsInCart: state.cart.length })
         case GET_KNIFE + '_FULFILLED':
             return Object.assign({}, state, { knife: action.payload })
         case ADD_KNIFE_TO_SHOP + '_FULFILLED':
@@ -62,16 +62,15 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { cartTotal: action.payload })
         case UPDATE_ADDRESS:
             return Object.assign({}, state, { user: action.payload })
-        // case REMOVE_FROM_CART: 
-        //     console.log('remove from cart reducer fired')
-        //     console.log(state.cart)
-        //     var index = state.cart.indexOf(action.payload)
-        //     console.log(index)
-        //     state.cart.splice(index, 1)
-        //     return Object.assign({}, state, { cart: state.cart})
         case REMOVE_FROM_CART:
-            return Object.assign({}, state, { cart: action.payload })
-
+            let currentCart = state.cart.slice();
+            currentCart.splice(currentCart.findIndex((knife) => knife.id === action.payload), 1)
+            for (var i = 0, temporaryTotal = 0; i < currentCart.length; i++) {
+                console.log(Number(currentCart[i].price))
+                temporaryTotal += (Number(currentCart[i].price))
+            }
+            console.log(currentCart)
+            return Object.assign({}, state, { cart: currentCart, cartTotal: temporaryTotal.toFixed(2), itemsInCart: state.cart.length-1 })
         default:
             return state;
     }
@@ -95,7 +94,7 @@ export function getKnives() {
         .then(res => {
             return res.data
         })
-    console.log(knivesData)
+    // console.log(knivesData)
     return {
         type: GET_KNIVES,
         payload: knivesData
@@ -121,13 +120,13 @@ export function addToCart(knife) {
     }
 }
 
-// export function removeFromCart(knife){
-//     console.log(knife)
-//     return {
-//         type: REMOVE_FROM_CART,
-//         payload: knife
-//     }
-// }
+export function removeFromCart(id) {
+    console.log(id)
+    return {
+        type: REMOVE_FROM_CART,
+        payload: id
+    }
+}
 
 
 export function getCurrentUser() {
@@ -136,7 +135,6 @@ export function getCurrentUser() {
             // console.log('current user = ', res.data)
             return res.data
         })
-    console.log(currentUserData)
     return {
         type: GET_CURRENT_USER,
         payload: currentUserData

@@ -15,7 +15,7 @@ class Landing extends Component {
     
     render() {
        const randomKnife = this.props.knives[Math.floor(Math.random() * this.props.knives.length)]
-       console.log('this is random knife', randomKnife)
+    //    console.log('this is random knife', randomKnife)
         return (
             <div className="main_landing_container">
                 
@@ -23,7 +23,7 @@ class Landing extends Component {
                      
                 <div className="featured_knife_container">
                     <div className="featured_knife_img_container">
-                        {console.log('this is random knife', randomKnife)}
+                        {/* {console.log('this is random knife', randomKnife)} */}
                        {randomKnife && <img src={randomKnife.img} className="featured_knife" alt=""></img>}
                     </div>
                     <div className="featured_knife_desc_container">

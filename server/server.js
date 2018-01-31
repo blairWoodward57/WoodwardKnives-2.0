@@ -38,7 +38,7 @@ passport.use(new Auth0Strategy({
     db.find_user([profile.identities[0].user_id]).then(user => {
         // console.log(profile._json)
         if (user[0]) {
-            console.log('logged in', user[0])
+            // console.log('logged in', user[0])
             return done(null, user[0].id)
         } else {
             const user = profile._json;
@@ -96,10 +96,10 @@ app.get('/api/knives', (req, res, next) => {
 app.get('/api/currentuser', (req, res, next) => {
     const db = app.get("db");
     const user = req.user;
-    console.log('this is the req.user', user.id)
+    // console.log('this is the req.user', user.id)
     db.find_current_user([user.id])
         .then(user => {
-            console.log('this is the user!!!!,', user[0])
+            console.log('this is the user,', user[0].firstname, user[0].lastname)
             res.status(200).send(user[0])
         })
 })
@@ -120,28 +120,28 @@ app.put('/api/useraddress/:id', (req, res, next) => {
     const db = req.app.get("db");
     const id = req.user.auth_id;
     if (req.body.address_1){
-        console.log('about to update address 1')
+        // console.log('about to update address 1')
         db.update_user_address_1([req.body.address_1, id])
             // .then(user => {
             //     res.status(200).send(user)
             // })
     } 
     if (req.body.address_2){
-        console.log('about to update address 2')
+        // console.log('about to update address 2')
         db.update_user_address_2([req.body.address_2, id])
             // .then(user => {
             //     res.status(200).send(user)
             // })
     } 
     if (req.body.address_3){
-        console.log('about to update address 3')
+        // console.log('about to update address 3')
         db.update_user_address_3([req.body.address_3, id])
             // .then(user => {
             //     res.status(200).send(user)
             // })
     } 
     if (req.body.address_4){
-        console.log('about to update address 4')
+        // console.log('about to update address 4')
         db.update_user_address_4([req.body.address_4, id])
             .then(user => {
                 res.status(200).send(user)
@@ -153,7 +153,7 @@ app.put('/api/knife/:id', (req, res, next) => {
     const db = req.app.get('db');
     const { id } = req.params;
     if (req.body.knife_name){
-        console.log('about to update name')
+        // console.log('about to update name')
         db.update_knife_name([req.body.knife_name, id])
             .then(knife => {
                 res.status(200).send(knife)

@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   showMenu() {
-    console.log('hello Blair')
+    // console.log('hello Blair')
     this.setState({
       showSlideMenu: !this.state.showSlideMenu
     })
@@ -26,7 +26,7 @@ class App extends Component {
 
   whichMenu() {
     if (this.state.showSlideMenu === false) {
-      console.log('showSlideMenu is false!')
+      // console.log('showSlideMenu is false!')
       return (
         <div className="header">
         <Header showSlideMenu={this.showMenu} />
@@ -34,7 +34,7 @@ class App extends Component {
         </div>
       )
     } else if (this.state.showSlideMenu === true) {
-      console.log('showSlideMenu is true!')
+      // console.log('showSlideMenu is true!')
       return (
         <div className="header">
         <Header showSlideMenu={this.showMenu} />
@@ -48,7 +48,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.whichMenu(console.log('hello!!!!!!!'))}
+        {this.whichMenu()}
         {router(this.state.showSlideMenu, this.showMenu)}
         <div className="footer">
           <Footer className="main_footer" />

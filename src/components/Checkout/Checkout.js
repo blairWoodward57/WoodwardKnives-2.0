@@ -119,7 +119,7 @@ class Checkout extends Component {
                 <div className="stripe_checkout_button_container">
                     {console.log(user)}
                     
-                        <div className="save_button_checkout" onClick={() => this.props.updateShippingAddress( this.props.match.params.id, user.street, user.city, user.state, user.zip )}>Save Address</div> 
+                        <div className="save_button_checkout" onClick={() => this.props.updateShippingAddress( this.props.match.params.id, user.street, user.city, user.state, user.zip )}>Save</div> 
                     <div className="stripe_button">
                         <StripeCheckout
                             token={this.onToken}
