@@ -24,7 +24,7 @@ class Dropdown extends Component {
                     <div onClick={this.props.closeMenu}><Link to="/contact">CONTACT</Link></div>
                     <div onClick={this.props.closeMenu}><Link to="/cart">CART</Link></div>
                     <Login />
-                    <a href="https://www.facebook.com/Mark-Woodward-Custom-Knives-105385596193548/"><img src="https://image.flaticon.com/icons/svg/174/174848.svg" alt="" className="facebook_logo_dropdown"></img></a>
+                    <a href="https://www.facebook.com/Mark-Woodward-Custom-Knives-105385596193548/" target="_blank" rel="noopener noreferrer"><img src="https://image.flaticon.com/icons/svg/174/174848.svg" alt="" className="facebook_logo_dropdown"></img></a>
                 </nav>
             )
         } else if (this.props.user) {
@@ -38,7 +38,7 @@ class Dropdown extends Component {
                         <div onClick={this.props.closeMenu}><Link to="/contact">CONTACT</Link></div>
                         <div onClick={this.props.closeMenu}><Link to="/cart">CART</Link></div>
                         <Logout />
-                        <a href="https://www.facebook.com/Mark-Woodward-Custom-Knives-105385596193548/"><img src="https://image.flaticon.com/icons/svg/174/174848.svg" alt="" className="facebook_logo_dropdown"></img></a>
+                        <a href="https://www.facebook.com/Mark-Woodward-Custom-Knives-105385596193548/" target="_blank" rel="noopener noreferrer"><img src="https://image.flaticon.com/icons/svg/174/174848.svg" alt="" className="facebook_logo_dropdown"></img></a>
                     </nav>
                 )
             } else {
@@ -50,7 +50,7 @@ class Dropdown extends Component {
                         <div onClick={this.props.closeMenu}><Link to="/contact">CONTACT</Link></div>
                         <div onClick={this.props.closeMenu}><Link to="/cart">CART</Link></div>
                         <Logout />
-                        <a href="https://www.facebook.com/Mark-Woodward-Custom-Knives-105385596193548/"><img src="https://image.flaticon.com/icons/svg/174/174848.svg" alt="" className="facebook_logo_dropdown"></img></a>
+                        <a href="https://www.facebook.com/Mark-Woodward-Custom-Knives-105385596193548/" target="_blank" rel="noopener noreferrer"><img src="https://image.flaticon.com/icons/svg/174/174848.svg" alt="" className="facebook_logo_dropdown"></img></a>
                     </nav>
                 )
             }

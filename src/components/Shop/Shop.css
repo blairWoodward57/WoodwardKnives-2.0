@@ -74,6 +74,39 @@ hr {
     background: #FEC503;
 }
 
+@media only screen and (max-width:768px) and (min-width: 321px){
+    .shop_header {
+        display: flex;
+        width: 400px;
+        margin-left: 90px;
+    }
+    .knife_tiles_container {
+        width: 768px; 
+        justify-content: center;
+        align-items: center;
+    }
+    .knife_tiles_container {
+         width: 320px;
+        /* height: 500px; */
+        flex-direction: column;
+        /* margin-right: 60px; */
+    }
+    .knife_tile {
+        width: 700px;
+        display: flex;
+        height: 930px;
+        flex-direction: column;
+        margin-left: -190px;
+    }
+    .knife_tile img {
+        width: 600px;
+        height: 370px;
+    }
+    hr {
+        display: none;
+    }
+}
+
 @media(max-width:320px) {
     .main_shop_container{
         display: flex;

@@ -114,7 +114,24 @@ app.get('/api/knife/:id', (req, res, next) => {
       })
 })
 
+app.get('/api/getorders', (req, res, next) => {
+    const db = req.app.get("db");
+    db.get_orders()
+        .then(order => {
+            res.status(200).send(order);
+        })
+})
 
+app.put('/api/closeorder/:orderid', (req, res, next) => {
+    const db = req.app.get("db");
+    const id = req.params.orderid
+    console.log(id)
+    db.close_order([id])
+        .then(closedorder => {
+            console.log('hitting the close order endpoint', closedorder)
+            res.status(200).send(closedorder)
+        })
+})
 
 app.put('/api/useraddress/:id', (req, res, next) => {
     const db = req.app.get("db");
@@ -210,21 +227,31 @@ app.post('/api/addknife', (req, res, next) => {
       })
 })
 
-app.post('/api/order/:userid', (req, res, next) => {
+app.post('/api/order', (req, res, next) => {
     const db = app.get("db")
+    console.log('the req.user is', req.user)
     const userId = req.user.id
     db.create_order([userId])
-        .then(resp => {
-            let orderId = resp[0].id
+        .then(order => {
+            let orderId = order[0].id
+            console.log(typeof order)
+            console.log('order Id', orderId)
+            // res.status(200).send(order)
             let arr = []
+            console.log(req.body)
             for (var i = 0; i < req.body.knives.length; i++){
 
-            arr.push(db.add_knife_to_order(orderId, req.body.knives[i].id))
+            arr.push(db.create_order_item([orderId, req.body.knives[i].id]))
             }
+            console.log('array to promise all', arr)
             Promise.all(arr)
             .then(orderitems => {
-                db.get_order(orderId)
-                res.status(200).send(orderitems)
+                db.query('delete from cart where id = ' + userId)
+                db.get_orders(orderId)
+                    .then(currentOrder => {
+                        console.log('current order', currentOrder)
+                res.status(200).send(currentOrder)
+                    })
             })
         })
 })

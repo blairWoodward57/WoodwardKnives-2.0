@@ -18,7 +18,11 @@ const initialState = {
     productImage: '',
     userImage: '',
     cartTotal: 0.00,
-    showSlideMenu: false
+    showSlideMenu: false,
+    userCart: [],
+    userOrder: [],
+    allOrders: [],
+    // closedOrder: []
 }
 
 
@@ -34,6 +38,10 @@ const UPDATE_KNIFE = "UPDATE_KNIFE";
 const CALCULATE_CART_TOTAL = "CALCULATE_CART_TOTAL";
 const UPDATE_ADDRESS = "UPDATE_ADDRESS";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+const CREATE_CART_AND_ORDER = "CREATE_CART_AND_ORDER";
+const GET_ALL_ORDERS = "GET_ALL_ORDERS";
+const CLEAR_CART = "CLEAR_CART";
+// const CLOSE_ORDER = "CLOSE_ORDER";
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -70,7 +78,15 @@ export default function reducer(state = initialState, action) {
                 temporaryTotal += (Number(currentCart[i].price))
             }
             console.log(currentCart)
-            return Object.assign({}, state, { cart: currentCart, cartTotal: temporaryTotal.toFixed(2), itemsInCart: state.cart.length-1 })
+            return Object.assign({}, state, { cart: currentCart, cartTotal: temporaryTotal.toFixed(2), itemsInCart: state.cart.length - 1 })
+        case CREATE_CART_AND_ORDER: 
+            return Object.assign({}, state, { userOrder: action.payload })
+        case GET_ALL_ORDERS + '_FULFILLED':
+            return Object.assign({}, state, { allOrders: action.payload })
+        case CLEAR_CART:
+            return Object.assign({}, state, { itemsInCart: action.payload, cart: []})
+        // case CLOSE_ORDER:
+        //     return Object.assign({}, state, { closedOrder: action.payload })
         default:
             return state;
     }
@@ -112,6 +128,13 @@ export function addKnifeToShop(reqBody) {
     }
 }
 
+export function clearCart(){
+    return {
+        type: CLEAR_CART,
+        payload: 0
+    }
+}
+
 export function addToCart(knife) {
     console.log(knife)
     return {
@@ -127,6 +150,43 @@ export function removeFromCart(id) {
         payload: id
     }
 }
+
+export function createCartAndOrder(knives){
+    const orderInfo = axios.post('/api/order', {knives})
+        .then(res => {
+            console.log('this is the order data', res.data)
+            return res.data
+        })
+    return {
+        type: CREATE_CART_AND_ORDER,
+        payload: orderInfo
+    }
+}
+
+export function getOrders(){
+    const allOrders = axios.get('/api/getorders')
+        .then(res => {
+            // console.log('orders', res.data)
+            return res.data
+        })
+    return {
+        type: GET_ALL_ORDERS,
+        payload: allOrders
+    }
+}
+
+// export function closeOrder(orderid){
+//     console.log(orderid)
+//     const closedorder = axios.put('/api/closeorder/' + orderid)
+//         .then(res => {
+//             console.log('this is inside the close order function in reducer', res.data)
+//             return res.data
+//         })
+//     return {
+//         type: CLOSE_ORDER,
+//         payload: closedorder
+//     }
+// }
 
 
 export function getCurrentUser() {
@@ -168,7 +228,7 @@ export function getKnifeEditPage(id) {
 }
 
 export function updateShippingAddress(id, address_1, address_2, address_3, address_4) {
-    console.log('hitting action in reducer')
+    console.log('updating shipping address in reducer')
     const updatedAddress = axios.put('/api/useraddress/' + id, {
         address_1: address_1,
         address_2: address_2,

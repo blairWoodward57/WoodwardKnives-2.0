@@ -9,6 +9,45 @@ class Cart extends Component {
     componentDidMount() {
         this.props.calculateCartTotal(this.props.cart)
     }
+
+    promptToShop(){
+        if (this.props.cart.length === 0){
+            return (
+                <div className="checkout_button_1_1">
+                        <button onClick={() => this.alertToAddToCart()}>Checkout</button>
+                    </div>
+            )
+        }
+        if (this.props.cart.length > 0){
+            return (
+                <div className="checkout_button_1">
+                        <Link to="/checkout"><button>Checkout</button></Link>
+                    </div>
+            )
+        }
+    }
+    
+    promptToShop2(){
+        if (this.props.cart.length === 0){
+            return (
+                <div className="checkout_button_2_1">
+                        <button onClick={() => this.alertToAddToCart()}>Checkout</button>
+                    </div>
+            )
+        }
+        if (this.props.cart.length > 0){
+            return (
+                <div className="checkout_button_2">
+                        <Link to="/checkout"><button>Checkout</button></Link>
+                    </div>
+            )
+        }
+    }
+
+    alertToAddToCart(){
+        console.log('hitting alert')
+        alert("Add items to shop to continue to checkout")
+    }
     
 
     render() {
@@ -25,13 +64,9 @@ class Cart extends Component {
                             Total: ${cartTotal}
                         </p>
                     </div>
-                    <div className="checkout_button_1">
-                        <Link to="/checkout"><button>Checkout</button></Link>
-                    </div>
+                    {this.promptToShop()}
                 </div>
-                <div className="checkout_button_2">
-                        <Link to="/checkout"><button>Checkout</button></Link>
-                    </div>
+                {this.promptToShop2()}
                 <hr /><hr />
                 <div className="cart_tile_container">
                     {cart.map((element, i) => (

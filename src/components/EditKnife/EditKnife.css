@@ -1,6 +1,6 @@
 .edit_root {
     display: flex;
-    /* height: 800px; */
+    height: 800px; 
     width: 100vw;
     background: lightyellow;
     justify-content: space-around;
@@ -161,6 +161,39 @@
 .edit_inputs p {
     font-family: 'Montserrat', sans-serif; 
 }
+
+@media only screen and (max-width:768px) and (min-width: 321px){
+    .edit_knife_image {
+        height: 300px;
+        width: 480px;
+        background: white;
+        border: 1px solid black;
+        margin-top: 30px;
+    }
+    .edit_root {
+        display: flex;
+        flex-direction: column;
+    }
+    .edit_inputs {
+        display: flex;
+        align-items: center;
+        /* width: 320px;
+        height: 900px; */
+        margin-left: 0px;
+    }
+    .edit_page_buttons {
+        margin-bottom: 50px;
+    }
+    .save_button_edit a {
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+    .cancel_button_edit a {
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+    }
+
 @media(max-width:320px){
    .edit_knife_image {
         height: 170px;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Admin.css';
-import { addKnifeToShop, getCurrentUser, getKnives, deleteKnife } from './../../ducks/reducer.js';
+import { addKnifeToShop, getCurrentUser, getKnives, deleteKnife, createCartAndOrder, getOrders } from './../../ducks/reducer.js';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -30,10 +30,12 @@ class Admin extends Component {
         this.updateHandleMaterial = this.updateHandleMaterial.bind(this);
         this.updateSteelType = this.updateSteelType.bind(this);
         this.updateKnifeImage = this.updateKnifeImage.bind(this);
+        this.displayOpenOrders = this.displayOpenOrders.bind(this);
+        this.closeOrder = this.closeOrder.bind(this);
     }
 
     componentWillMount() {
-        const { getCurrentUser } = this.props
+        const { getCurrentUser} = this.props
         axios.get('/auth/me')
             .then((res) => {
                 // console.log('this is the response', res)
@@ -42,6 +44,11 @@ class Admin extends Component {
                 }
             })
         getCurrentUser()
+    }
+
+    componentDidMount(){
+        const { getOrders } = this.props
+        getOrders()
     }
 
     updateKnifeName(value) {
@@ -122,10 +129,45 @@ class Admin extends Component {
         this.props.addKnifeToShop(reqBody);
     }
 
+    closeOrder(orderid){
+        console.log(orderid)
+        axios.put('/api/closeorder/' + orderid)
+        .then(res => {
+            console.log('this is inside the close order function in reducer', res.data)
+            return res.data
+        })
+        this.props.getOrders()
+    }
+
+    displayOpenOrders(){
+        const orders = this.props.allOrders
+            return (
+                orders.filter(e=> e.open).map((element, i) => (
+                    <div className="order_tile" key={i}>
+                        <img src={element.img} alt="" className="order_tile_image"/>
+                        <div className="order_info">
+                            <p>Ship To:</p>
+                            <p>User: {element.firstname + ' '}{element.lastname}</p>
+                            <p>Knife Ordered: {element.knife_name}</p>
+                            <p>Address: {element.address_1}</p>
+                            <p>{element.address_2 + ',' + ' '}{element.address_3 + ' '}{element.address_4}</p>
+                            <div className="shipped_button_container">
+                            <button className="shipped_button_admin" onClick={() => this.closeOrder(element.id)}>Shipped</button>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                    )
+            )
+    }
+
     render() {
         const knives = this.props.knives
+        const orders = this.props.allOrders
+        // console.log(orders[0].open)
         
-        console.log('these are knives for admin', knives)
+        // console.log('these are knives for admin', knives)
+
         return (
             <div className="admin_main_container">
                 <div className="admin_left_column">
@@ -157,16 +199,10 @@ class Admin extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="orders_container">
+                <div className="orders_root">
                     <h1>Orders</h1>
-                    <div className="order_tile">
-                        <div className="order_tile_image"></div>
-                        <div className="order_info">
-                            <p>user:</p>
-                            <p>knife ordered:</p>
-                            <p>address:</p>
-                            <button className="shipped_button">Shipped</button>
-                        </div>
+                    <div className="orders_container">
+                    {this.displayOpenOrders()}
                     </div>
                 </div>
                 <div className="add_product_container">
@@ -217,11 +253,13 @@ class Admin extends Component {
 }
 
 function mapStateToProps(state) {
-    const { user, knives, knife } = state;
+    const { user, knives, knife, userOrder, allOrders } = state;
     return {
         user,
         knives,
-        knife
+        knife,
+        userOrder,
+        allOrders
     }
 }
-export default connect(mapStateToProps, { addKnifeToShop, getCurrentUser, getKnives, deleteKnife })(Admin);
+export default connect(mapStateToProps, { addKnifeToShop, getCurrentUser, getKnives, deleteKnife, createCartAndOrder, getOrders })(Admin);

@@ -45,6 +45,41 @@
     line-height: 180%;
 }
 
+@media only screen and (max-width:768px) and (min-width: 321px){
+    .about_main_container {
+        /* display: flex;
+        justify-content: center; */
+        height: 964px; 
+        width: 100vw;
+    }
+    .about_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 700px;
+        height: 750px;
+        margin-top: -20px;
+    }
+    .about_container img {
+        width: 500px;
+        height: 350px;
+        margin-top: 30px; 
+        margin-bottom: -50px;
+        padding: 0px;
+        border-radius: 5px;
+    }
+    .about_header {
+        display: flex;
+        justify-content: center;
+        width: 768px;
+    }
+    .about_words {
+        width: 500px;
+        margin-top: 30px;
+    }
+}
+
 @media(max-width:320px) {
     .about_main_container {
         display: flex;

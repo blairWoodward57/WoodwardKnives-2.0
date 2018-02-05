@@ -17,6 +17,24 @@ class Shop extends Component {
         // addToCart()
     }
 
+    loginToShop(element){
+        if (!this.props.user.id){
+            return (
+                <button className="add_button" onClick={() => this.alertToLogin()}>Add To Cart</button>
+            )
+        } else if (this.props.user.id){
+            return (
+                <button className="add_button" onClick={(e) => this.props.addToCart(element)}>Add To Cart</button>
+            )
+        } 
+    }
+
+    alertToLogin(){
+        console.log('hitting alert')
+        alert("please login or create account to continue shopping")
+    }
+
+
     render() {
         const knives = this.props.knives
         return (
@@ -36,7 +54,7 @@ class Shop extends Component {
                                     <p>Overall Length: {element.id ? element.overall_length : null} inches</p>
                                     <p>Blade Width: {element.id ? element.blade_thickness : null} inches</p>
                                     <p>Price: ${element.id ? element.price : null}</p>
-                                    <button className="add_button" onClick={(e) => this.props.addToCart(element)}>Add To Cart</button>
+                                    {this.loginToShop(element)}
                                 </div>
 
                             </div>

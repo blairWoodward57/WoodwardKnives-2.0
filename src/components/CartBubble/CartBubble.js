@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 
 class CartBubble extends Component {
     render() {
-        console.log(this.props)
         return (
             <div>
                 <div className="cartbubble_main">
@@ -23,7 +22,6 @@ class CartBubble extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('this is state', state.itemsInCart)
     const { cart, itemsInCart } = state;
     return {
         cart,

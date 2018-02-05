@@ -10,6 +10,7 @@ class Landing extends Component {
     componentWillMount(){
         const { getKnives } = this.props
         getKnives()
+        // getOrders()
         // console.log(this.props.knives)
     }
     
@@ -52,9 +53,10 @@ class Landing extends Component {
 }
 
 function mapStateToProps(state) {
-    const { knives } = state;
+    const { knives, allOrders } = state;
     return {
-        knives
+        knives,
+        allOrders
     }
 }
 export default connect(mapStateToProps, { getKnives })(Landing)

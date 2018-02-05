@@ -1,5 +1,4 @@
-INSERT INTO orderstable
+INSERT INTO OrdersTable
 (userId)
-VALUES
-($1);
-select * from orderstable;
+VALUES ($1)
+RETURNING *;

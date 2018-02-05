@@ -1,6 +1,7 @@
 .admin_main_container {
     display: flex;
     flex-direction: row;
+    height: 800px;
     background: lightyellow;
 }
 
@@ -94,6 +95,20 @@
     background: lightgray;
     border: 1px solid black;
     border-radius: 6px;
+}
+
+.orders_root {
+    display: flex;
+    height: 710px;
+    width: 500px;
+    align-items: center;
+    flex-direction: column;
+    background: lightgray;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-left: -5px;
+    margin-right: 5px;
 }
 
 .admin_knife_tiles_container {
@@ -196,21 +211,25 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 550px;
-    height: 710px;
+    justify-content: space-between;
+    width: 500px;
+    height: 710px; 
     background: lightgray;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 6px;
-    margin: 20px;
+    /* margin: 20px; */
+    overflow: scroll;
+    
 }
 
 .order_tile {
-    display: flex;
+    display: flex; 
     flex-direction: row;
     width: 500px;
-    height: 250px;
-    background: white;
+    height: 300px;
+    background: lightgray;
     border: 1px solid darkgray;
+    margin-bottom: 285px;
 }
 
 .order_tile_image {
@@ -226,7 +245,7 @@
     margin-left: 30px;
 }
 
-.shipped_button {
+.shipped_button_admin {
     height: 40px;
     width: 120px;
     border: none;
@@ -305,6 +324,60 @@
     cursor: pointer;
 } 
 
+@media only screen and (max-width:768px) and (min-width: 321px){
+    .admin_main_container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background: lightyellow;
+    }
+    .admin_loggedin_container {
+        width: 745px;
+        margin-left: 225px;
+    }
+    .add_product_container {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        flex-direction: column;
+        width: 745px;
+        height: 950px;
+        background: lightgray;
+        border: 1px solid black;
+        border-radius: 6px;
+        margin-left: 10px;
+    }
+     .orders_root {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        flex-direction: column;
+        width: 745px;
+        height: 530px;
+        background: lightgray;
+        border: 1px solid black;
+        border-radius: 6px;
+        margin-left: 10px;
+    }
+    .knife_updater {
+        display: flex;
+        height: 440px;
+        width: 745px;
+        align-items: center;
+        flex-direction: column;
+        background: lightgray;
+        border: 1px solid black;
+        border-radius: 6px;
+        margin-left: 205px;
+    }
+    .admin_knife_tiles_container {
+        width: 700px;
+    }
+    .admin_knife_tile {
+        width: 700px;
+    }
+}
+
 @media(max-width:320px) {
     .admin_main_container {
         display: flex;
@@ -319,6 +392,18 @@
         flex-direction: column;
         width: 300px;
         height: 950px;
+        background: lightgray;
+        border: 1px solid black;
+        border-radius: 6px;
+        margin-left: 10px;
+    }
+    .orders_root {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        flex-direction: column;
+        width: 300px;
+        height: 530px;
         background: lightgray;
         border: 1px solid black;
         border-radius: 6px;
@@ -374,9 +459,10 @@
         width: 300px;
         height: 500px;
         background: lightgray;
-        border: 1px solid black;
+        border: none;
         border-radius: 6px;
-        margin-left: 10px;
+        /* margin-left: 10px; */
+        margin-top: -7px;
     }
     .order_tile {
         display: flex;
@@ -384,18 +470,19 @@
         align-items: center;
         width: 280px;
         height: 350px;
+        margin-bottom: 450px;
     }
     .order_tile_image {
         margin-bottom: -25px;
     }
     .order_info {
         display: flex;
-        width: 200px;
+        width: 240px;
         flex-direction: column;
         align-items: flex-start;
     }
-    .shipped_button {
-        margin-top: 10px;
+    .shipped_button_admin {
+         margin-top: 10px; 
     }
     .order_info p {
         height: 0px;
