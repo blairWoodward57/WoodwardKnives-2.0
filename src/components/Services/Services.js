@@ -21,17 +21,18 @@ class Services extends Component {
                     <div className="sharpening_prices">
                         <div className="sharpening_prices_words">
                         <h4>Kitchen Knives........$0.78 per inch</h4>
-                        <h6 className="serrated_price">Serrated......................................................$0.85 per inch</h6>
-                        <h4>Fixed Blade Hunter..$6.95 - $8.95</h4>
-                        <h4>Folding Knives..........................$6.95</h4>
-                        <h4>Pocket Knives...........................$4.95</h4>
-                        <h4>Scissors..........................$5.99 - $9.99</h4>
-                        <h4>Axes...............................................$8.95</h4>
-                        <h4>Mower Blades............................$9.99</h4>
+                        <h4>Fabric Shears...............$7.95 - $9.95</h4>
+                        <h4>Lawn Mower Blades...............$8.50</h4>
+                        <h4>One Handed Garden Tools....$6.95</h4>
+                        <h4>Loppers........................................$7.95</h4>
+                        <h4>Hedgers.......................................$9.95</h4>
+                        <h4>Paper Cutters...........$1.50 per inch</h4>
+                        <h4>Folding Knives..........................$5.00</h4>
+                        <h4>Pocket Knives........$1.95 per blade</h4>
+                        <h4>3-Blade Pocket Knives...........$5.00</h4>
+                        <h4>Fixed Blade Hunter..................$7.50</h4>
                         <h4>Hatchets......................................$7.95</h4>
-                        <h4>Food Processer Blades........$15.00</h4>
-                        <h4>Meat Slicer Blades................$25.00</h4>
-                        <h4>Meat Slicer Blades................$25.00</h4>
+                        <h4>Axes..............................................$8.95</h4>
                         <h6>For any other items, please contact</h6>
                     </div>
                 </div>

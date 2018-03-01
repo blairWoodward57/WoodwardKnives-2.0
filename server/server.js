@@ -11,6 +11,8 @@ const stripe         = require('stripe')( process.env.STRIPE_SECRET_KEY );
 
 const app = express();
 
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -57,7 +59,7 @@ passport.use(new Auth0Strategy({
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/',
+    successRedirect: process.env.REACT_APP_BASE_URL_2,
     failureRedirect: '/auth'
 }))
 
@@ -70,7 +72,7 @@ app.get('/auth/me', (req, res) => {
 
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect(302, 'https://blairwoodward57.auth0.com/v2/logout?returnTo=http://localhost:3000/#/')
+    res.redirect(302, `https://blairwoodward57.auth0.com/v2/logout?returnTo=${process.env.REACT_APP_BASE_URL_2}`)
 })
 
 passport.serializeUser((id, done) => {

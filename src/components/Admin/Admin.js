@@ -47,7 +47,8 @@ class Admin extends Component {
     }
 
     componentDidMount(){
-        const { getOrders } = this.props
+        const { getOrders, getKnives } = this.props
+        getKnives()
         getOrders()
     }
 

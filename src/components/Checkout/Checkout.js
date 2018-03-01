@@ -31,7 +31,7 @@ class Checkout extends Component {
     onToken = (token) => {
         token.card = void 0;
         console.log('token', token);
-        axios.post('http://localhost:3002/api/payment', { token, amount: 100 }).then(response => {
+        axios.post(`${process.env.REACT_APP_BASE_URL}/api/payment`, { token, amount: 100 }).then(response => {
             this.props.createCartAndOrder(this.props.cart)
             this.props.clearCart()
             alert("Thank you for your purchase! Your order is on it's way! Please allow up to 10 business days for your order to arrive.")
