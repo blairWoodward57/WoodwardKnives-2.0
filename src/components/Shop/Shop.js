@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import './Shop.css';
 import { getKnives, addToCart, getCurrentUser } from './../../ducks/reducer.js';
 
-// import { Link } from 'react-router-dom';
-
-
 
 class Shop extends Component {
 
@@ -13,24 +10,21 @@ class Shop extends Component {
         const { getKnives, getCurrentUser } = this.props;
         getKnives()
         getCurrentUser()
-
-        // addToCart()
     }
 
-    loginToShop(element){
-        if (!this.props.user.id){
+    loginToShop(element) {
+        if (!this.props.user.id) {
             return (
                 <button className="add_button" onClick={() => this.alertToLogin()}>Add To Cart</button>
             )
-        } else if (this.props.user.id){
+        } else if (this.props.user.id) {
             return (
                 <button className="add_button" onClick={(e) => this.props.addToCart(element)}>Add To Cart</button>
             )
-        } 
+        }
     }
 
-    alertToLogin(){
-        console.log('hitting alert')
+    alertToLogin() {
         alert("please login or create account to continue shopping")
     }
 

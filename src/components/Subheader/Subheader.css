@@ -15,7 +15,7 @@
     
   }
 
-@media only screen and (max-width:768px) and (min-width: 321px){
+@media only screen and (max-width:1100px) and (min-width: 321px){
    .subheader_container {
       display: none;
    }

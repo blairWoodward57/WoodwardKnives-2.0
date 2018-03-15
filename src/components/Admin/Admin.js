@@ -35,10 +35,9 @@ class Admin extends Component {
     }
 
     componentWillMount() {
-        const { getCurrentUser} = this.props
+        const { getCurrentUser } = this.props
         axios.get('/auth/me')
             .then((res) => {
-                // console.log('this is the response', res)
                 if (!res.data.isadmin) {
                     this.props.history.push('/');
                 }
@@ -46,7 +45,7 @@ class Admin extends Component {
         getCurrentUser()
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const { getOrders, getKnives } = this.props
         getKnives()
         getOrders()
@@ -130,44 +129,41 @@ class Admin extends Component {
         this.props.addKnifeToShop(reqBody);
     }
 
-    closeOrder(orderid){
+    closeOrder(orderid) {
         console.log(orderid)
         axios.put('/api/closeorder/' + orderid)
-        .then(res => {
-            console.log('this is inside the close order function in reducer', res.data)
-            return res.data
-        })
+            .then(res => {
+                console.log('this is inside the close order function in reducer', res.data)
+                return res.data
+            })
         this.props.getOrders()
     }
 
-    displayOpenOrders(){
+    displayOpenOrders() {
         const orders = this.props.allOrders
-            return (
-                orders.filter(e=> e.open).map((element, i) => (
-                    <div className="order_tile" key={i}>
-                        <img src={element.img} alt="" className="order_tile_image"/>
-                        <div className="order_info">
-                            <p>Ship To:</p>
-                            <p>User: {element.firstname + ' '}{element.lastname}</p>
-                            <p>Knife Ordered: {element.knife_name}</p>
-                            <p>Address: {element.address_1}</p>
-                            <p>{element.address_2 + ',' + ' '}{element.address_3 + ' '}{element.address_4}</p>
-                            <div className="shipped_button_container">
+        return (
+            orders.filter(e => e.open).map((element, i) => (
+                <div className="order_tile" key={i}>
+                    <img src={element.img} alt="" className="order_tile_image" />
+                    <div className="order_info">
+                        <p>Ship To:</p>
+                        <p>User: {element.firstname + ' '}{element.lastname}</p>
+                        <p>Knife Ordered: {element.knife_name}</p>
+                        <p>Address: {element.address_1}</p>
+                        <p>{element.address_2 + ',' + ' '}{element.address_3 + ' '}{element.address_4}</p>
+                        <div className="shipped_button_container">
                             <button className="shipped_button_admin" onClick={() => this.closeOrder(element.id)}>Shipped</button>
-                            </div>
                         </div>
                     </div>
-                    )
-                    )
+                </div>
             )
+            )
+        )
     }
 
     render() {
         const knives = this.props.knives
         const orders = this.props.allOrders
-        // console.log(orders[0].open)
-        
-        // console.log('these are knives for admin', knives)
 
         return (
             <div className="admin_main_container">
@@ -203,17 +199,17 @@ class Admin extends Component {
                 <div className="orders_root">
                     <h1>Orders</h1>
                     <div className="orders_container">
-                    {this.displayOpenOrders()}
+                        {this.displayOpenOrders()}
                     </div>
                 </div>
                 <div className="add_product_container">
                     <h1 className="add_product_header">Add Product To Shop</h1>
                     <div className="add_product_inputs">
                         <div className="name_description">
-                        <p>Knife Name</p>
-                        <input onChange={(e) => this.updateKnifeName(e.target.value)} className="add_product_name" />
-                        <p>Knife Description (limit 200 characters)</p>
-                        <textarea className="add_product_description" maxLength="220" type="text" onChange={(e) => this.updateKnifeDescription(e.target.value)}></textarea>
+                            <p>Knife Name</p>
+                            <input onChange={(e) => this.updateKnifeName(e.target.value)} className="add_product_name" />
+                            <p>Knife Description (limit 200 characters)</p>
+                            <textarea className="add_product_description" maxLength="220" type="text" onChange={(e) => this.updateKnifeDescription(e.target.value)}></textarea>
                         </div>
                         <div className="knife_dimentions">
                             <div className="blade_length">
@@ -240,10 +236,10 @@ class Admin extends Component {
                             </div>
                         </div>
                         <div className="steel_image">
-                        <p>Steel Type</p>
-                        <input onChange={(e) => this.updateSteelType(e.target.value)} className="add_product_steel_type" />
-                        <p>Image URL</p>
-                        <input onChange={(e) => this.updateKnifeImage(e.target.value)} className="add_product_img" />
+                            <p>Steel Type</p>
+                            <input onChange={(e) => this.updateSteelType(e.target.value)} className="add_product_steel_type" />
+                            <p>Image URL</p>
+                            <input onChange={(e) => this.updateKnifeImage(e.target.value)} className="add_product_img" />
                         </div>
                     </div>
                     <button onClick={this.createKnife} className="add_product_button">Add Product</button>

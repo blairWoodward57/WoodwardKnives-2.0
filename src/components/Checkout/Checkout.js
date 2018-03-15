@@ -17,7 +17,6 @@ class Checkout extends Component {
             state: '',
             zip: '',
         }
-        // this.calculateCartTotal = this.calculateCartTotal.bind(this)
         this.updateFirstName = this.updateFirstName.bind(this);
         this.updateLastName = this.updateLastName.bind(this);
         this.updateStreet = this.updateStreet.bind(this);
@@ -104,7 +103,6 @@ class Checkout extends Component {
                         <p>Last Name</p>
                         <input className="shipping_lastname" defaultValue={this.props.user.lastname} onChange={(e) => this.updateLastName(e.target.value)} />
                     </div>
-                    {/* <h1 className="shipping_header">Shipping Info:</h1> */}
                     <div className="address_container">
                         <div className="street_address">
                             <p>Street Address</p>
@@ -127,7 +125,6 @@ class Checkout extends Component {
                     <div className="stripe_checkout_button_container">
                         {console.log(this.state)}
 
-                        {/* <div className="save_button_checkout" >Save</div>  */}
                         <div className="stripe_button" onClick={() => this.props.updateShippingAddress(this.props.match.params.id, this.state.street, this.state.city, this.state.state, this.state.zip)}>
                             <StripeCheckout
                                 token={this.onToken}

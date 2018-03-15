@@ -14,7 +14,6 @@ import Dropdown from './components/Dropdown/Dropdown.js';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 export default function router(showSlideMenu, closeMenu){
-    // console.log('closeMenu', closeMenu, 'showSlideMenu', showSlideMenu)
     return (
         <Router>
                <div>

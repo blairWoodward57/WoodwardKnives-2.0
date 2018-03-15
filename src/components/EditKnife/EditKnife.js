@@ -29,15 +29,12 @@ class EditKnife extends Component {
         this.updateHandleMaterial = this.updateHandleMaterial.bind(this);
         this.updateSteelType = this.updateSteelType.bind(this);
         this.updateKnifeImage = this.updateKnifeImage.bind(this);
-        // this.updateKnife = this.updateKnife.bind(this);
-        
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.props.getKnifeEditPage(this.props.match.params.id)
         axios.get('/auth/me')
             .then((res) => {
-                // console.log('this is the response', res)
                 if (!res.data.isadmin) {
                     this.props.history.push('/');
                 }
@@ -45,7 +42,7 @@ class EditKnife extends Component {
         this.props.getCurrentUser()
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         console.log(nextProps);
 
         this.setState(
@@ -121,7 +118,7 @@ class EditKnife extends Component {
         const knife = this.state
         return (
             <div className="edit_root">
-                <img src={knife.img} alt="" className="edit_knife_image"/>
+                <img src={knife.img} alt="" className="edit_knife_image" />
                 <div className="edit_inputs">
                     <p>Knife Name</p>
                     <input className="edit_knife_name" value={knife.knife_name} onChange={(e) => this.updateKnifeName(e.target.value)} />
@@ -129,16 +126,16 @@ class EditKnife extends Component {
                     <textarea className="edit_knife_description" value={knife.description} maxLength="220" type="text" onChange={(e) => this.updateKnifeDescription(e.target.value)}></textarea>
                     <div className="edit_knife_dimensions">
                         <div className="edit_blade_length_container">
-                        <p>Blade Length</p>
-                        <input className="edit_knife_blade_length" value={knife.blade_length} onChange={(e) => this.updateBladeLength(e.target.value)} />
+                            <p>Blade Length</p>
+                            <input className="edit_knife_blade_length" value={knife.blade_length} onChange={(e) => this.updateBladeLength(e.target.value)} />
                         </div>
                         <div className="edit_overall_length_container">
-                        <p>Overall Length</p>
-                        <input className="edit_knife_overall_length" value={knife.overall_length} onChange={(e) => this.updateoverallLength(e.target.value)} />
+                            <p>Overall Length</p>
+                            <input className="edit_knife_overall_length" value={knife.overall_length} onChange={(e) => this.updateoverallLength(e.target.value)} />
                         </div>
                         <div className="edit_blade_width_container">
-                        <p>Blade Width</p>
-                        <input className="edit_knife_blade_thickness" value={knife.blade_thickness} onChange={(e) => this.updateBladeThickness(e.target.value)} />
+                            <p>Blade Width</p>
+                            <input className="edit_knife_blade_thickness" value={knife.blade_thickness} onChange={(e) => this.updateBladeThickness(e.target.value)} />
                         </div>
                     </div>
                     <p>Price</p>
@@ -151,15 +148,15 @@ class EditKnife extends Component {
                     <input className="edit_knife_image_url" value={knife.img} onChange={(e) => this.updateKnifeImage(e.target.value)} />
                 </div>
                 <div className="edit_page_buttons">
-                 <div className="save_button_edit" onClick={() => this.props.updateKnife(this.props.match.params.id, knife.knife_name, knife.description, knife.blade_length, knife.overall_length, knife.blade_thickness, knife.price, knife.handle_material, knife.steel_type, knife.img)}><Link to="/admin">Save</Link></div> 
-                 <div className="cancel_button_edit"><Link to="/admin">Cancel</Link></div> 
-                 </div>
+                    <div className="save_button_edit" onClick={() => this.props.updateKnife(this.props.match.params.id, knife.knife_name, knife.description, knife.blade_length, knife.overall_length, knife.blade_thickness, knife.price, knife.handle_material, knife.steel_type, knife.img)}><Link to="/admin">Save</Link></div>
+                    <div className="cancel_button_edit"><Link to="/admin">Cancel</Link></div>
+                </div>
             </div>
         )
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     const { knife, user } = state;
     return {
         knife,

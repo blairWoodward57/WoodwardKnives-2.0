@@ -21,8 +21,7 @@ const initialState = {
     showSlideMenu: false,
     userCart: [],
     userOrder: [],
-    allOrders: [],
-    // closedOrder: []
+    allOrders: []
 }
 
 
@@ -41,7 +40,6 @@ const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const CREATE_CART_AND_ORDER = "CREATE_CART_AND_ORDER";
 const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 const CLEAR_CART = "CLEAR_CART";
-// const CLOSE_ORDER = "CLOSE_ORDER";
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -85,8 +83,6 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { allOrders: action.payload })
         case CLEAR_CART:
             return Object.assign({}, state, { itemsInCart: action.payload, cart: []})
-        // case CLOSE_ORDER:
-        //     return Object.assign({}, state, { closedOrder: action.payload })
         default:
             return state;
     }
@@ -174,20 +170,6 @@ export function getOrders(){
         payload: allOrders
     }
 }
-
-// export function closeOrder(orderid){
-//     console.log(orderid)
-//     const closedorder = axios.put('/api/closeorder/' + orderid)
-//         .then(res => {
-//             console.log('this is inside the close order function in reducer', res.data)
-//             return res.data
-//         })
-//     return {
-//         type: CLOSE_ORDER,
-//         payload: closedorder
-//     }
-// }
-
 
 export function getCurrentUser() {
     const currentUserData = axios.get('/api/currentuser')

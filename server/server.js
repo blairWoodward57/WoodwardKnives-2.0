@@ -139,28 +139,15 @@ app.put('/api/useraddress/:id', (req, res, next) => {
     const db = req.app.get("db");
     const id = req.user.auth_id;
     if (req.body.address_1){
-        // console.log('about to update address 1')
         db.update_user_address_1([req.body.address_1, id])
-            // .then(user => {
-            //     res.status(200).send(user)
-            // })
     } 
     if (req.body.address_2){
-        // console.log('about to update address 2')
         db.update_user_address_2([req.body.address_2, id])
-            // .then(user => {
-            //     res.status(200).send(user)
-            // })
     } 
     if (req.body.address_3){
-        // console.log('about to update address 3')
         db.update_user_address_3([req.body.address_3, id])
-            // .then(user => {
-            //     res.status(200).send(user)
-            // })
     } 
     if (req.body.address_4){
-        // console.log('about to update address 4')
         db.update_user_address_4([req.body.address_4, id])
             .then(user => {
                 res.status(200).send(user)
@@ -172,7 +159,6 @@ app.put('/api/knife/:id', (req, res, next) => {
     const db = req.app.get('db');
     const { id } = req.params;
     if (req.body.knife_name){
-        // console.log('about to update name')
         db.update_knife_name([req.body.knife_name, id])
             .then(knife => {
                 res.status(200).send(knife)
@@ -238,7 +224,6 @@ app.post('/api/order', (req, res, next) => {
             let orderId = order[0].id
             console.log(typeof order)
             console.log('order Id', orderId)
-            // res.status(200).send(order)
             let arr = []
             console.log(req.body)
             for (var i = 0; i < req.body.knives.length; i++){

@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   showMenu() {
-    // console.log('hello Blair')
     this.setState({
       showSlideMenu: !this.state.showSlideMenu
     })
@@ -26,19 +25,17 @@ class App extends Component {
 
   whichMenu() {
     if (this.state.showSlideMenu === false) {
-      // console.log('showSlideMenu is false!')
       return (
         <div className="header">
-        <Header showSlideMenu={this.showMenu} />
-         <Subheader /> 
+          <Header showSlideMenu={this.showMenu} />
+          <Subheader />
         </div>
       )
     } else if (this.state.showSlideMenu === true) {
-      // console.log('showSlideMenu is true!')
       return (
         <div className="header">
-        <Header showSlideMenu={this.showMenu} />
-        <Dropdown showMenu={this.showMenu}/>
+          <Header showSlideMenu={this.showMenu} />
+          <Dropdown showMenu={this.showMenu} />
         </div>
       )
     }

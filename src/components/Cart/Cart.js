@@ -77,7 +77,6 @@ class Cart extends Component {
                                 <p>{element.id ? element.description : null}</p>
                                 <p>Price: ${element.id ? element.price : null}</p>
                             </div>
-                              {/* <button>Remove</button>   */}
                                  <button onClick={() => this.props.removeFromCart(element.id)}>Remove</button>       
                         </div>
                     )
